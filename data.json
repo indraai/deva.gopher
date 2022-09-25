@@ -1,0 +1,90 @@
+{
+  "name": "Gopher Deva Data File",
+  "describe": "The main Data file for Gopher Deva",
+  "copyright": "Copyright (c)2022 Quinn Michaels. All rights reserved.",
+  "data": {
+    "agent": {
+      "uid": "3405249173685",
+      "key": "gopher",
+      "name": "Gopher Deva",
+      "describe": "The Deva for accessing Gopher Networks",
+      "prompt": {
+        "emoji": "⊙",
+        "text": "gopher",
+        "colors": {
+          "label": {
+            "R": 0,
+            "G": 150,
+            "B": 255
+          },
+          "text": {
+            "R": 107,
+            "G": 207,
+            "B": 42
+          }
+        }
+      },
+      "voice": {
+        "speech": "Alex",
+        "speed": 1
+      },
+      "profile": {
+        "emoji": "/public/devas/gopher/emoji.png",
+        "avatar": "/public/devas/gopher/avatar.png",
+        "background": "",
+        "describe": "The Deva for accessing Gopher Networks",
+        "gender": "M"
+      }
+    },
+    "vars": {
+      "messages": {
+        "init": "🟠 INIT",
+        "start": "🔵 START",
+        "enter": "🟢 ENTER",
+        "stop": "🔴 STOP",
+        "exit": "🟡 EXIT",
+        "done": "🟣 DONE",
+        "error": "💣 ERROR!"
+      },
+      "uripattern": "^(gopher:\/\/)?(.+?(?=:|\/|$))(:\\d+?(?=$|\/))?([^#]+?(?=\\?|$|#))?(\\?.+?(?=$|#))?(#.+)?",
+      "default": {
+        "host": "gopher.floodgap.com",
+        "port": 70,
+        "search": "gopher.floodgap.com:70/v2/vs"
+      },
+      "history": [],
+      "server": {
+        "active": false,
+        "data": [],
+        "start": false,
+        "stop": false,
+        "host": false,
+        "port": false,
+        "ipaddr": false,
+        "type": false,
+        "selector": false,
+        "query": false,
+        "name": false
+      },
+      "type": {
+        "info": 1,
+        "text": 0,
+        "directory": 1,
+        "phonebook": 2,
+        "error": 3,
+        "binhex": 4,
+        "dosbinary": 5,
+        "uuencoded": 6,
+        "search": 7,
+        "telnet": 8,
+        "binary": 9,
+        "redundant": "+",
+        "tn3270": "T",
+        "gif": "g",
+        "image": "I",
+        "html": "h",
+        "mail": "M"
+      }
+    }
+  }
+}
