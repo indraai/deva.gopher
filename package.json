@@ -1,5 +1,5 @@
 {
-  "name": "@feecting/gopherdeva",
+  "name": "@indra.ai/gopherdeva",
   "version": "0.0.1",
   "description": "The Gopher Deva",
   "main": "index.js",
@@ -20,7 +20,7 @@
     "url": "https://github.com/indraai/GopherDEVA/issues"
   },
   "dependencies": {
-    "@feecting/deva": "^1.0.25"
+    "@indra.ai/deva": "^1.0.25"
   },
   "homepage": "https://github.com/indraai/GopherDEVA#readme"
 }
