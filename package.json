@@ -1,14 +1,15 @@
 {
-  "name": "@indra.ai/gopherdeva",
-  "version": "0.0.2",
+  "name": "@indra.ai/gopher.deva",
+  "version": "0.0.0",
   "description": "The Gopher Deva",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/indraai/GopherDEVA.git"
+    "url": "git+ssh://git@github.com/indraai/deva.gopher.git"
   },
   "keywords": [
     "Gopher",
@@ -17,10 +18,10 @@
   "author": "Quinn Michaels",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/indraai/GopherDEVA/issues"
+    "url": "https://github.com/indraai/deva.gopher/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.0.25"
+    "@indra.ai/deva": "^1.4.2"
   },
-  "homepage": "https://github.com/indraai/GopherDEVA#readme"
+  "homepage": "https://github.com/indraai/deva.gopher#readme"
 }

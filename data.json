@@ -1,16 +1,14 @@
 {
   "name": "Gopher Deva Data File",
   "describe": "The main Data file for Gopher Deva",
-  "copyright": "Copyright (c)2022 Quinn Michaels. All rights reserved.",
-  "data": {
+  "copyright": "Copyright (c)2025 Quinn Michaels. All rights reserved.",
+  "DATA": {
     "agent": {
-      "uid": "3405249173685",
+      "id": 3405249173685,
       "key": "gopher",
-      "name": "Gopher Deva",
-      "describe": "The Deva for accessing Gopher Networks",
       "prompt": {
-        "emoji": "⊙",
-        "text": "gopher",
+        "emoji": "⛳️",
+        "text": "Gopher",
         "colors": {
           "label": {
             "R": 0,
@@ -24,16 +22,15 @@
           }
         }
       },
-      "voice": {
-        "speech": "Alex",
-        "speed": 1
-      },
       "profile": {
-        "emoji": "/public/devas/gopher/emoji.png",
-        "avatar": "/public/devas/gopher/avatar.png",
-        "background": "",
+        "name": "Gopher Deva",
         "describe": "The Deva for accessing Gopher Networks",
-        "gender": "M"
+        "gender": "DEVA",
+        "pronouns": "He, Him",
+        "system": "Deva.world.gopher",
+        "emoji": "/public/devas/deva/emoji.png",
+        "avatar": "/public/devas/deva/avatar.png",
+        "background": "/public/devas/deva/background.png"
       }
     },
     "vars": {
@@ -44,7 +41,12 @@
         "stop": "🔴 STOP",
         "exit": "🟡 EXIT",
         "done": "🟣 DONE",
-        "error": "💣 ERROR!"
+        "error": "💣 ERROR!",
+        "ready": "⭐️ Gopher Ready!"
+      },
+      "context": {
+        "search": "🔎 Search",
+        "get": "🤔 Get"
       },
       "uripattern": "^(gopher:\/\/)?(.+?(?=:|\/|$))(:\\d+?(?=$|\/))?([^#]+?(?=\\?|$|#))?(\\?.+?(?=$|#))?(#.+)?",
       "default": {
@@ -53,6 +55,9 @@
         "search": "gopher.floodgap.com:70/v2/vs"
       },
       "history": [],
+      "ask": {
+        "history": []
+      },
       "server": {
         "active": false,
         "data": [],

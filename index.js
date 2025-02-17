@@ -1,23 +1,37 @@
-// Copyright (c)2022 Quinn Michaels
+// Copyright (c)2025 Quinn Michaels
 // Gopher Deva
 
-const net = require('net');
-const fs = require('fs');
-const path = require('path');
+import Deva from '@indra.ai/deva';
+import net from 'node:net';
+import pkg from './package.json' with {type:'json'};
 
-const data_path = path.join(__dirname, 'data.json');
-const {agent,vars} = require(data_path).data;
+import data from './data.json' with {type:'json'};
+const {agent,vars} = data.DATA;
 
-const Deva = require('@indra.ai/deva');
+// set the __dirname
+import {dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';    
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const info = {
+  id: pkg.id,
+  name: pkg.name,
+  describe: pkg.description,
+  version: pkg.version,
+  url: pkg.homepage,
+  dir: __dirname,
+  git: pkg.repository.url,
+  bugs: pkg.bugs.url,
+  author: pkg.author,
+  license: pkg.license,
+  copyright: pkg.copyright,
+};
+
 const GOPHER = new Deva({
-  agent: {
-    uid: agent.uid,
-    key: agent.key,
-    name: agent.name,
-    describe: agent.describe,
-    prompt: agent.prompt,
-    voice: agent.voice,
-    profile: agent.profile,
+  info,
+  agent,
+  vars,
+  utils: {
     translate(input) {
       return input.trim();
     },
@@ -34,13 +48,13 @@ const GOPHER = new Deva({
           case 'i':
           case '3':
             const lformat = l.substring(1).split('\t')[0].replace('\t', '').trim();
-            if (lformat.length) dir.push(`\nl: ${lformat}`);
+            if (lformat.length) dir.push(`l: ${lformat}`);
             break;
 
           default:
             if (l === '.') break;
             const split = l.substring(1).split('\t');
-            dir.push(`\ncmd[${split[0]}]:#gopher get ${split[2]}:${split[3]}${split[1]}`);
+            dir.push(`cmd[${split[0]}]:#gopher get ${split[2]}:${split[3]}${split[1]}`);
         }
       }
       return dir.join('\n');
@@ -49,7 +63,7 @@ const GOPHER = new Deva({
   vars,
   listeners: {},
   modules: {},
-  deva: {},
+  devas: {},
   func: {
     toShortURI() {
       const {host, port, type, selector, name} = this.vars.server;
@@ -102,39 +116,39 @@ const GOPHER = new Deva({
   			this.vars.server.selector = matches[4] ? matches[4] : '';
   			this.vars.server.query = matches[5] ? matches[5] : false;
   			this.vars.server.name = matches[6] ? matches[6].substring(1):this.func.toURI();
-
+        
         const socket = net.createConnection({
-            host:this.vars.server.host,
-            port:this.vars.server.port,
-          }, () => {
-            let request = this.vars.server.selector;
-            if (this.vars.server.query) request += `\t${this.vars.server.query}`;
-            request += '\r\n';
-            socket.write(request);
-          });
+          host:this.vars.server.host,
+          port:this.vars.server.port,
+        }, () => {
+          let request = this.vars.server.selector;
+          if (this.vars.server.query) request += `\t${this.vars.server.query}`;
+          request += '\r\n';
+          socket.write(request);
+        });
 
-          this.vars.server.ipaddr = socket.remoteAddress
-          socket.on('error', err => {
-            return this.error(err, q, reject);
+        this.vars.server.ipaddr = socket.remoteAddress
+        socket.on('error', err => {
+          return this.error(err, q, reject);
+        }).on('end', () => {
 
-          }).on('end', () => {
+          const data = this.utils.parse(this.vars.server.data);
 
-            const data = this.agent.parse(this.vars.server.data);
-
-            this.question(`#feecting parse ${data}`).then(parsed => {
-              this.vars.server.stop = new Date();
-              this.func.reset();
-              return resolve({
-                text: parsed.a.text,
-                html: parsed.a.html,
-                data: parsed.a.data,
-              })
-            }).catch(err => {
-              return this.error(err, false, reject);
-            });
-          }).on('data', data => {
-            this.vars.server.data.push(data);
-          })
+          this.question(`#feecting parse ${data}`).then(parsed => {
+            this.vars.server.stop = new Date();
+            this.func.reset();
+            return resolve({
+              text: parsed.a.text,
+              html: parsed.a.html,
+              data: {
+                server: this.vars.server,
+                feecting: parsed.a.data
+              },
+            })
+          }).catch(() => {});
+        }).on('data', data => {
+          this.vars.server.data.push(data);
+        })
       });
     }
   },
@@ -145,6 +159,7 @@ const GOPHER = new Deva({
     describe: runs a search on the veronica search gopher agent
     ***************/
     search(packet) {
+      this.context('search');
       return this.func.get(`${this.vars.default.search}?${packet.q.text}`);
     },
 
@@ -154,48 +169,17 @@ const GOPHER = new Deva({
     describe: Get a gopher resource request
     ***************/
     get(packet) {
+      this.context('get');
       return this.func.get(packet.q.text);
     },
-
-    /**************
-    method: uid
-    params: packet
-    describe: Return a system id to the user from the Gopher Deva.
-    ***************/
-    uid(packet) {
-      return Promise.resolve({text:this.uid()});
-    },
-
-    /**************
-    method: status
-    params: packet
-    describe: Return the current status of the Gopher Deva.
-    ***************/
-    status(packet) {
-      return this.status();
-    },
-
-    /**************
-    method: help
-    params: packet
-    describe: The Help method returns the information on how to use the Gopher Deva.
-    ***************/
-    help(packet) {
-      return new Promise((resolve, reject) => {
-        this.lib.help(packet.q.text, __dirname).then(help => {
-          return this.question(`#feecting parse ${help}`);
-        }).then(parsed => {
-          return resolve({
-            text: parsed.a.text,
-            html: parsed.a.html,
-            data: parsed.a.data,
-          });
-        }).catch(reject);
-      });
-    }
   },
-  onError(err) {
+  onReady(data, resolve) {
+    this.prompt(this.vars.messages.ready);
+    return resolve(data);
+  },
+  onError(err, data, reject) {
     console.error(err);
+    return reject(err);
   }
 });
-module.exports = GOPHER
+export default GOPHER
