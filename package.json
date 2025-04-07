@@ -21,7 +21,7 @@
     "url": "https://github.com/indraai/deva.gopher/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.5.13"
+    "@indra.ai/deva": "^1.5.14"
   },
   "homepage": "https://github.com/indraai/deva.gopher#readme"
 }
