@@ -1,20 +1,12 @@
-## Gopher Deva
-p:Copyright (c)2022 Quinn Michaels
+::BEGIN:MAIN
+# {{profile.name}}
 
-p:This is the main help file for Gopher Deva. The Deva for accessing Gopher Networks
+{{profile}}
 
-uid: 4598034119416
-key: gopher
-name: Gopher Deva
-describe: The Deva for accessing Gopher Networks
-
-### Methods
-
-cmd:#gopher uid
-p:Generate a unique id from the Gopher Deva.
-
-cmd:#gopher status
-p:Return the status for the Gopher Deva.
-
-cmd:#gopher help
-p:Get help using the Gopher Deva
+::begin:hidden
+#color = {{profile.color}}
+#bgcolor = {{profile.bgcolor}}
+#bg = {{profile.bg}}
+copyright: (c)2025 Quinn Michaels
+::end:hidden
+::END:MAIN

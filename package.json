@@ -12,8 +12,11 @@
     "url": "git+ssh://git@github.com/indraai/deva.gopher.git"
   },
   "keywords": [
-    "Gopher",
-    "Deva"
+    "Gopher Deva",
+    "Indra.ai",
+    "Deva.world",
+    "Deva.cloud",
+    "Deva.space"
   ],
   "author": "Quinn Michaels",
   "license": "MIT",
@@ -23,5 +26,108 @@
   "dependencies": {
     "@indra.ai/deva": "^1.5.35"
   },
-  "homepage": "https://github.com/indraai/deva.gopher#readme"
+  "homepage": "https://github.com/indraai/deva.gopher#readme",
+  "data": {
+    "agent": {
+      "id": 3405249173685,
+      "key": "gopher",
+      "prompt": {
+        "emoji": "⛳️",
+        "text": "Gopher",
+        "colors": {
+          "label": {
+            "R": 0,
+            "G": 150,
+            "B": 255
+          },
+          "text": {
+            "R": 107,
+            "G": 207,
+            "B": 42
+          }
+        }
+      },
+      "profile": {
+        "name": "#GopherDeva",
+        "title": "Gopher Deva",
+        "subtitle": "Accessing legacy gopher networks.",
+        "describe": "The Deva for accessing Gopher Networks",
+        "tweet": "The Deva for accessing Gopher Networks",
+        "hashtags": "QuinnMichaels,IndraAI,DevaWorld,GopherDeva",
+        "pronouns": "He, Him",
+        "gender": "DEVA",
+        "style": "Legacy network artist",
+        "voice": "onyx",
+        "system": "Deva.world.gopher",
+        "layout": "default",
+        "color": "rgb(107,207,42)",
+        "bgcolor": "rgb(10,20,3)",
+        "emoji": "/assets/devas/gopher/emoji.png",
+        "avatar": "/assets/devas/gopher/avatar.png",
+        "image": "/assets/devas/gopher/image.png",
+        "background": "/assets/devas/gopher/background.png",
+        "owner": "Quinn Michaels",
+        "creator": "Quinn Michaels",
+        "created": "Sep 24, 2022 @ 11:35PM PST"
+      }
+    },
+    "vars": {
+      "messages": {
+        "init": "🟠 INIT",
+        "start": "🔵 START",
+        "enter": "🟢 ENTER",
+        "stop": "🔴 STOP",
+        "exit": "🟡 EXIT",
+        "done": "🟣 DONE",
+        "error": "💣 ERROR!",
+        "ready": "⭐️ Gopher Ready!"
+      },
+      "context": {
+        "search": "🔎 Search",
+        "get": "🤔 Get"
+      },
+      "uripattern": "^(gopher:\/\/)?(.+?(?=:|\/|$))(:\\d+?(?=$|\/))?([^#]+?(?=\\?|$|#))?(\\?.+?(?=$|#))?(#.+)?",
+      "default": {
+        "host": "gopher.floodgap.com",
+        "port": 70,
+        "search": "gopher.floodgap.com:70/v2/vs"
+      },
+      "history": [],
+      "ask": {
+        "history": []
+      },
+      "server": {
+        "active": false,
+        "data": [],
+        "start": false,
+        "stop": false,
+        "host": false,
+        "port": false,
+        "ipaddr": false,
+        "type": false,
+        "selector": false,
+        "query": false,
+        "name": false
+      },
+      "type": {
+        "info": 1,
+        "text": 0,
+        "directory": 1,
+        "phonebook": 2,
+        "error": 3,
+        "binhex": 4,
+        "dosbinary": 5,
+        "uuencoded": 6,
+        "search": 7,
+        "telnet": 8,
+        "binary": 9,
+        "redundant": "+",
+        "tn3270": "T",
+        "gif": "g",
+        "image": "I",
+        "html": "h",
+        "mail": "M"
+      }
+    }    
+  }
 }
