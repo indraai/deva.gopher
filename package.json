@@ -1,6 +1,6 @@
 {
   "name": "@indra.ai/gopher.deva",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "The Gopher Deva",
   "main": "index.js",
   "scripts": {
@@ -86,7 +86,7 @@
         "search": "🔎 Search",
         "get": "🤔 Get"
       },
-      "uripattern": "^(gopher:\/\/)?(.+?(?=:|\/|$))(:\\d+?(?=$|\/))?([^#]+?(?=\\?|$|#))?(\\?.+?(?=$|#))?(#.+)?",
+      "uripattern": "^(gopher://)?(.+?(?=:|/|$))(:\\d+?(?=$|/))?([^#]+?(?=\\?|$|#))?(\\?.+?(?=$|#))?(#.+)?",
       "default": {
         "host": "gopher.floodgap.com",
         "port": 70,
@@ -128,6 +128,6 @@
         "html": "h",
         "mail": "M"
       }
-    }    
+    }
   }
 }
