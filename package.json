@@ -36,14 +36,14 @@
         "text": "Gopher",
         "colors": {
           "label": {
-            "R": 0,
-            "G": 150,
-            "B": 255
+            "R": 210,
+            "G": 160,
+            "B": 86
           },
           "text": {
-            "R": 107,
-            "G": 207,
-            "B": 42
+            "R": 252,
+            "G": 254,
+            "B": 187
           }
         }
       },
@@ -60,8 +60,8 @@
         "voice": "onyx",
         "system": "Deva.world.gopher",
         "layout": "default",
-        "color": "rgb(107,207,42)",
-        "bgcolor": "rgb(10,20,3)",
+        "color": "rgb(252,254,187)",
+        "bgcolor": "rgb(36,51,73)",
         "emoji": "/assets/devas/gopher/emoji.png",
         "avatar": "/assets/devas/gopher/avatar.png",
         "image": "/assets/devas/gopher/image.png",
@@ -80,7 +80,7 @@
         "exit": "🟡 EXIT",
         "done": "🟣 DONE",
         "error": "💣 ERROR!",
-        "ready": "⭐️ Gopher Ready!"
+        "ready": "⭐️ READY!"
       },
       "context": {
         "search": "🔎 Search",
