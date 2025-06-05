@@ -24,7 +24,7 @@
     "url": "https://github.com/indraai/deva.gopher/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.5.35"
+    "@indra.ai/deva": "^1.5.38"
   },
   "homepage": "https://github.com/indraai/deva.gopher#readme",
   "data": {
@@ -48,7 +48,8 @@
         }
       },
       "profile": {
-        "name": "#GopherDeva",
+        "name": "Gopher Deva",
+        "hashtag": "#GopherDeva",
         "title": "Gopher Deva",
         "subtitle": "Accessing legacy gopher networks.",
         "describe": "The Deva for accessing Gopher Networks",
