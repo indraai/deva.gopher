@@ -1,6 +1,6 @@
 {
   "name": "@indra.ai/gopher.deva",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "The Gopher Deva",
   "main": "index.js",
   "scripts": {
